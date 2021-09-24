@@ -40,5 +40,24 @@ namespace AsyncProgramming.Controllers
             var tBool = ASleepMethod();
             return View();
         }
+
+        public static Task LongProcess()
+        {
+            return Task.Run(() =>
+            {
+                System.Threading.Thread.Sleep(8000);
+            });
+        }
+
+        /// <summary>
+        /// Long process running, wait process.
+        /// </summary>
+        /// <returns></returns>
+        public async Task<ActionResult> TaskProcess()
+        {
+            await LongProcess();
+            return View();
+        }
+
     }
 }
