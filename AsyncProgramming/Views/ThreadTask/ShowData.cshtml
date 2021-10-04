@@ -1,0 +1,20 @@
+﻿<h1>Show Data</h1>
+
+<table>
+    <tr>
+        <td>Name &nbsp;</td>
+        <td>Age  &nbsp;</td>
+        <td> City &nbsp;</td>
+        <td>Class  &nbsp;</td>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td> @item.Name &nbsp;</td>
+            <td>@item.Age &nbsp;</td>
+            <td> @item.HomeAddress &nbsp;</td>
+            <td>@item.classes &nbsp;</td>
+        </tr>
+
+    }
+</table>

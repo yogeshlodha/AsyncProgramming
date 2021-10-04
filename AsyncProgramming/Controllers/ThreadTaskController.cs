@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AsyncProgramming.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
@@ -59,5 +60,15 @@ namespace AsyncProgramming.Controllers
             return View();
         }
 
+        /// <summary>
+        /// Fetch data from local DB.
+        /// </summary>
+        /// <returns></returns>
+        public async Task<ActionResult> ShowData()
+        {
+            TestDBEntities db = new TestDBEntities();
+            var StudentModel = await Task.Run(()=> db.Students.Take(100).ToList());
+            return View("ShowData",StudentModel);
+        }
     }
 }
